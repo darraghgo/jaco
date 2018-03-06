@@ -11,6 +11,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.Configurator;
 
+import com.goslindarragh.jaco.data.DataManagerSQLite;
+import com.goslindarragh.jaco.menu.MenuBuilder;
+
 import joptsimple.OptionException;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -20,8 +23,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import com.goslindarragh.jaco.menu.MenuBuilder;
 
 
 /*****************************************************************
@@ -62,7 +63,7 @@ public class App
 	// The getLogger( ) part should contain the name of the class its in
 	private static Logger LOG;
 	
-	private static String VERSION = "0.4";
+	private static String VERSION = "0.5";
 	
 	//The URL and name of the SQLite database
 	// TODO: Remove database location and name hard coding and pass in as a parameter in the next version
@@ -87,21 +88,19 @@ public class App
 				
 		this.someInput = new Scanner(System.in);
 		
-		//do something here: Display the list of users from the database
-		showListOfUsers();
+		//set the database file to use
+		DataManagerSQLite.getInstance().setDataFile(this.databaseFile);
 		
-		//pause before exit (this is only useful if an error occurs)
-        System.out.println(" \n Press enter to exit the program");
-		this.someInput.nextLine();
-		
-		//calling menu builder
-		
-		MenuBuilder	theMenu	=	new	MenuBuilder();
+		MenuBuilder theMenu = new MenuBuilder();
 		
 		//theMenu.print();
 		//LOG.debug(theMenu.display());		
 		
 		theMenu.getMenu().display();
+		
+		//pause before exit (this is only useful if an error occurs)
+        System.out.println(" \n Press enter to exit the program");
+		this.someInput.nextLine();
 
 		//close the program without error
 		System.exit(0);
@@ -115,63 +114,6 @@ public class App
     
 	// METHODS used by main() or debug methods - note they are static methods
 	//............................................................
-	
-	/**
-	 * write out the users in a users table for the database specified
-	 * 
-	 */
-	private void showListOfUsers()
-	{
-		this.today = new Date();
-		LOG.debug("Getting list of Users from Database as of " + today);
-		
-		//if log level id debug e.g. -v parameter used then show database file being used
-		LOG.debug("Database file:" + this.databaseFile);
-		
-		// Get JDBC connection to database
-		Connection connection = null;
-		
-        try
-        {
-        	  // create a database connection
-        	  connection = DriverManager.getConnection( this.databaseFile);
-        	
-          Statement statement = connection.createStatement();
-          statement.setQueryTimeout(30);  // set timeout to 30 sec.
-          
-          // Run the query
-          
-          ResultSet resultSet = statement.executeQuery("select * from user");
-          
-          // iterate through the results create User objects put in the ListArray
-          
-          while(resultSet.next())
-          {
-              LOG.debug( "User found: " + resultSet.getString("userName") );
-          }
-        	  
-        }
-        catch(SQLException e)
-        {
-          // if the error message is "out of memory",
-          // it probably means no database file is found
-          LOG.error(e.getMessage());
-        } 
-        finally
-        {
-          try
-          {
-            if(connection != null)
-              connection.close();
-          }
-          catch(SQLException e)
-          {
-            // connection close failed.
-            LOG.error(e.getMessage());
-          }
-        }
-		
-	}//EOM
 	
 	/**
 	 * action the arguments presented at the command line
@@ -200,7 +142,7 @@ public class App
 				
 				if (options.has("version"))
 				{
-					System.out.println("Pythia version : " + VERSION);
+					System.out.println("jaco version : " + VERSION);
 					System.exit(0);
 				}
 				

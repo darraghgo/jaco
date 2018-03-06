@@ -1,6 +1,6 @@
 package	com.goslindarragh.jaco.menu;
 import	java.util.Scanner;
-public class UndefinedMenuItem implements IExecuatable	{
+public class UndefinedMenuItem implements IExecutable	{
 				
 				Scanner	input	=	new	Scanner(System.in);
 				

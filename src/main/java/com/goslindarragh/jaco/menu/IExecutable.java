@@ -1,5 +1,5 @@
 package	com.goslindarragh.jaco.menu;
-public interface IExecuatable {
+public interface IExecutable {
 				
 				public void execute();
 }

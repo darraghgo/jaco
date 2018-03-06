@@ -63,7 +63,7 @@ public	class Menu extends MenuWidget {
 				{
 								ConsoleControls.clearConsole();
 								int	exitMenu	=	0;
-								IExecuatable	exe;
+								IExecutable	exe;
 								
 								do	{
 												
@@ -103,8 +103,7 @@ public	class Menu extends MenuWidget {
 												{
 																if(menuOfExecutors.get(this.selection).equalsIgnoreCase("undefinedMenuItem"))
 																{
-																				System.out.println(	ConsoleControls.ANSI_YELLOW	+	"picked	:	"	+	menuOfExecutors.get(this.selection)	+	ConsoleControls.ANSI_RESE
-T);
+																				System.out.println(	ConsoleControls.ANSI_YELLOW	+	"picked	:	"	+	menuOfExecutors.get(this.selection)	+	ConsoleControls.ANSI_RESET);
 																}
 																else
 																{
@@ -120,8 +119,7 @@ T);
 																				}
 																				catch	(	FactoryException	fe)
 																				{
-																								System.out.println(ConsoleControls.ANSI_RED	+"Failed	to	create	instance	:	"	+	menuOfExecutors.get(this.selection)	+	Console
-Controls.ANSI_RESET);
+																								System.out.println(ConsoleControls.ANSI_RED	+"Failed	to	create	instance	:	"	+	menuOfExecutors.get(this.selection)	+	ConsoleControls.ANSI_RESET);
 																				}
 																				*/
 																				

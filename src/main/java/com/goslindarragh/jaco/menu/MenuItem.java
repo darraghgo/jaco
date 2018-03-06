@@ -63,8 +63,7 @@ public	class MenuItem extends MenuWidget{
 				
 				public	String	toString()
 				{			
-					 	 return String.format(	"ID:	%x	Display:	%s,	%s,	%b,	Class:	%s	\n",	getID(),	getDisplayName(),	getDescription(),	isExecutable(),	getE
-xecutor()	);
+					 	 return String.format(	"ID:	%x	Display:	%s,	%s,	%b,	Class:	%s	\n",	getID(),	getDisplayName(),	getDescription(),	isExecutable(),	getExecutor()	);
 				}
 				
 }
