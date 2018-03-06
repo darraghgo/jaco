@@ -21,6 +21,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.goslindarragh.jaco.menu.MenuBuilder;
+
 
 /*****************************************************************
  *
@@ -91,6 +93,15 @@ public class App
 		//pause before exit (this is only useful if an error occurs)
         System.out.println(" \n Press enter to exit the program");
 		this.someInput.nextLine();
+		
+		//calling menu builder
+		
+		MenuBuilder	theMenu	=	new	MenuBuilder();
+		
+		//theMenu.print();
+		//LOG.debug(theMenu.display());		
+		
+		theMenu.getMenu().display();
 
 		//close the program without error
 		System.exit(0);
