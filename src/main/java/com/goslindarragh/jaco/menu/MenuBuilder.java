@@ -2,6 +2,9 @@ package	com.goslindarragh.jaco.menu;
 
 import	java.util.ArrayList;
 import	java.util.Iterator;
+
+import com.goslindarragh.jaco.user.UserViewMenuItem;
+import com.goslindarragh.jaco.playlist.playlistViewMenuItem;
 /*****************************************************************
 *
 *	 Date:	2018

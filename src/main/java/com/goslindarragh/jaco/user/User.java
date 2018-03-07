@@ -84,6 +84,11 @@ public String toString() {
 	return "User [userID=" + userID + ", userName=" + userName + ", userEmail=" + userEmail + ", userRole=" + userRole
 			+ ", userToken=" + userToken + ", userStatus=" + userStatus + ", userLastUpdate=" + userLastUpdate + "]";
 }
+
+public void display() {
+	// TODO Auto-generated method stub
+	
+}
 	
 	
 	
