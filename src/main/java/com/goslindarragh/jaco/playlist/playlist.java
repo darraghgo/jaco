@@ -8,16 +8,16 @@ public class playlist {
 	private String playlistRole;
 	private String playlistToken;
 	private int playlistStatus;
-	private String userLastUpdate;
+	private String playlistLastUpdate;
 	public playlist(int playlistID, String playlistName, String playlistEmail, String playlistRole,
-			String playlistToken, int playlistStatus, String userLastUpdate) {
+			String playlistToken, int playlistStatus, String playlistLastUpdate) {
 		this.playlistID = playlistID;
 		this.playlistName = playlistName;
 		this.playlistEmail = playlistEmail;
 		this.playlistRole = playlistRole;
 		this.playlistToken = playlistToken;
 		this.playlistStatus = playlistStatus;
-		this.userLastUpdate = userLastUpdate;
+		this.playlistLastUpdate = playlistLastUpdate;
 	}
 	public int getPlaylistID() {
 		return playlistID;
@@ -55,20 +55,20 @@ public class playlist {
 	public void setPlaylistStatus(int playlistStatus) {
 		this.playlistStatus = playlistStatus;
 	}
-	public String getUserLastUpdate() {
-		return userLastUpdate;
+	public String getplaylistLastUpdate() {
+		return playlistLastUpdate;
 	}
-	public void setUserLastUpdate(String userLastUpdate) {
-		this.userLastUpdate = userLastUpdate;
+	public void setplaylistLastUpdate(String playlistLastUpdate) {
+		this.playlistLastUpdate = playlistLastUpdate;
 	}
 	@Override
 	public String toString() {
 		return "playlist [playlistID=" + playlistID + ", playlistName=" + playlistName + ", playlistEmail="
 				+ playlistEmail + ", playlistRole=" + playlistRole + ", playlistToken=" + playlistToken
-				+ ", playlistStatus=" + playlistStatus + ", userLastUpdate=" + userLastUpdate + "]";
+				+ ", playlistStatus=" + playlistStatus + ", playlistLastUpdate=" + playlistLastUpdate + "]";
 	}
 	public void display() {
-		// TODO Auto-generated method stub
+		System.out.println(this.toString());
 		
 	}
 	

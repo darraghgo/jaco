@@ -6,6 +6,7 @@ import	org.apache.logging.log4j.LogManager;
 import	org.apache.logging.log4j.Logger;
 import	com.goslindarragh.jaco.user.UserDAO;
 import com.goslindarragh.jaco.playlist.playlistDAO;
+import com.goslindarragh.jaco.music.MusicDAO;
 public class DataManagerSQLite implements IDataManager {
 				
 				//	DATA
